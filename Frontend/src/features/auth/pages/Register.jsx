@@ -9,7 +9,7 @@ const Register = () => {
     const [ email, setEmail ] = useState("")
     const [ password, setPassword ] = useState("")
 
-    const {loading,handleRegister} = useAuth()
+    const {loading,authError,handleRegister} = useAuth()
     
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -27,6 +27,7 @@ const Register = () => {
         <main>
             <div className="form-container">
                 <h1>Register</h1>
+                {authError && <p className="auth-error" role="alert">{authError}</p>}
 
                 <form onSubmit={handleSubmit}>
 
